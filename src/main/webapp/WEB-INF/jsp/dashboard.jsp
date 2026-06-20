@@ -7,30 +7,27 @@
 <jsp:include page="templates/menu.jsp" />
  
 <div class="contenedor">
-    <h2><fmt:message key="sales.title" /></h2>
+    <h2><fmt:message key="dashboard.title" /></h2>
+    <p><fmt:message key="dashboard.description" /></p>
  
-    <c:if test="${not empty error}">
-        <div class="error">${error}</div>
-    </c:if>
-    <c:if test="${not empty param.registrada}">
-        <div class="ok"><fmt:message key="sales.saved" /> ${param.registrada}</div>
-    </c:if>
- 
-    <form method="post" action="${pageContext.request.contextPath}/app/ventas" class="formulario">
-        <label for="idProducto"><fmt:message key="sale.product" /></label>
-        <select id="idProducto" name="idProducto" required>
-            <option value=""><fmt:message key="form.select" /></option>
-            <c:forEach var="p" items="${productos}">
-                <option value="${p.idProducto}">${p.nombre} - $${p.precio} - Stock: ${p.stock}</option>
-            </c:forEach>
-        </select>
- 
-        <label for="cantidad"><fmt:message key="sale.quantity" /></label>
-        <input type="number" id="cantidad" name="cantidad" min="1" required>
- 
-        <br><br>
-        <button class="btn" type="submit"><fmt:message key="sale.register" /></button>
-    </form>
+    <div class="cards">
+        <div class="card">
+            <span class="card-numero">${totalCategorias}</span>
+            <span class="card-texto"><fmt:message key="dashboard.categories" /></span>
+        </div>
+        <div class="card">
+            <span class="card-numero">${totalProductos}</span>
+            <span class="card-texto"><fmt:message key="dashboard.products" /></span>
+        </div>
+        <div class="card">
+            <span class="card-numero">${stockTotal}</span>
+            <span class="card-texto"><fmt:message key="dashboard.stock" /></span>
+        </div>
+        <div class="card">
+            <span class="card-numero">${totalVentasRegistradas}</span>
+            <span class="card-texto"><fmt:message key="dashboard.sales" /></span>
+        </div>
+    </div>
  
     <h3><fmt:message key="sales.recent" /></h3>
     <table>
