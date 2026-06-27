@@ -6,13 +6,10 @@
 <html lang="${empty sessionScope.lang ? 'es' : sessionScope.lang}">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><fmt:message key="app.titulo" /></title>
+    <!-- CSS Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/estilos.css">
 </head>
-<body>
-<header class="topbar">
-    <h1><fmt:message key="app.titulo" /></h1>
-    <div class="usuario-topbar">
-        ${sessionScope.usuario.nombre} (${sessionScope.usuario.rol})
-    </div>
-</header>
+<body class="bg-light d-flex flex-column min-vh-100">
