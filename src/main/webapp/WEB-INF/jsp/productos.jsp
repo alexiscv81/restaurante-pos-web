@@ -57,6 +57,7 @@
         <tr>
             <th><fmt:message key="table.id" /></th>
             <th><fmt:message key="product.name" /></th>
+            <th><fmt:message key="product.description" /></th>
             <th><fmt:message key="product.category" /></th>
             <th><fmt:message key="product.price" /></th>
             <th><fmt:message key="product.stock" /></th>
@@ -68,6 +69,7 @@
             <tr>
                 <td>${p.idProducto}</td>
                 <td>${p.nombre}</td>
+                <td style="max-width: 300px; word-wrap: break-word;">${p.descripcion}</td>
                 <td>${p.categoria.nombre}</td>
                 <td>$ ${p.precio}</td>
                 <td>${p.stock}</td>
@@ -81,7 +83,7 @@
         </c:forEach>
         <c:if test="${empty productos}">
             <tr>
-                <td colspan="6"><fmt:message key="table.empty" /></td>
+                <td colspan="7"><fmt:message key="table.empty" /></td>
             </tr>
         </c:if>
         </tbody>
